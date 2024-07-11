@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <!--这个是在https://realfavicongenerator.net/这个网站做的-->
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/favicon-16x16.png">
+    <link rel="manifest" href="../static/site.webmanifest">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>GeminiProChat</title>
+    <link rel="stylesheet" href="../static/GeminiCSS/Gemini-Pro.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="chat-container" class="chat-container">
+        <select id="modelSelector" onchange="handleModelChange()" class="model-selector">
+            <option value="model1">Gemini-Pro</option>
+            <option value="model2">Gemini-pro-vision</option>
+        </select>
+        <div id="chat-box" class="chat-box">
+            <div class="background"></div>
+            <div class="head_container">
+                <div class="title"><h1>GeminiProChat</h1></div>
+                <div class="autor"><h2>based on Gemini API powerd by <a style=" color: blueviolet;
+                text-decoration: none;">wujiafa</a></h2></div>
+            </div>
+            <!-- 聊天消息将在这里动态添加 -->
+            <!-- 图片预览将在这里显示 -->
+            <img id="image-preview" style="display: none; max-width: 100%;">
+        </div>
+        <button id="apiKeyButton" onclick="openApiKeyModal()" class="api-key-button">设置API Key</button>     
+        <form id="input-form" class="input-form" onsubmit="sendMessage(event)">
+            <input type="file" id="file-input" class="file-input" accept="image/*" onchange="handleFileSelect(event)"/>
+            <input type="text" id="user-input" class="input-field" placeholder="请输入您的问题..." autocomplete="off" required>
+            <button type="button" id="send-button" class="send-button">发送</button>
+            <button type="button" id="clear-button" class="send-button">🧹清屏</button>
+        </form>         
+    </div>
+    <script src="../static/GeminiJS/now.js"></script>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>填写您的API Key</h2>
+            <input type="text" id="apiKeyInput" placeholder="请输入您的API Key...">
+            <button onclick="saveApiKey()">保存</button>
+        </div>
+    </div>
+    <script src="../static/GeminiJS/api.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/favicon-16x16.png">
+    <link rel="manifest" href="../static/site.webmanifest">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册页面</title>
+    <!-- 引入注册页面的样式表 -->
+    <link rel="stylesheet" href="../static/GeminiCSS/register.css">
+</head>
+<body>
+    <div class="container">
+        <h2>注册</h2>
+        {% if error %}
+            <!-- 显示错误信息 -->
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
+        <!-- 注册表单 -->
+        <form id="register-form" action="/register" method="post">
+            <label for="username">用户名:</label>
+            <input type="text" id="username" name="username">
+            <label for="password">密码:</label>
+            <input type="password" id="password" name="password">
+            <label for="confirm_password">确认密码:</label>
+            <input type="password" id="confirm_password" name="confirm_password">
+            <!-- 提交按钮 -->
+            <input type="submit" value="注册">
+        </form>
+    </div>
+    <script src="../static/GeminiJS/login/register.js"></script>
+</body>
+</html>
